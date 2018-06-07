@@ -70,6 +70,7 @@ JComboBox jahrAuswahl=new JComboBox(jahrListe);
 		pnl_center.add(pnl_TimeSelection);
 		pnl_center.add(lbl_favorite);
 		
+		//Radio Buttons zur Gruppe hinzugefügt damit nur einer der beiden ausgewählt werden kann
 		btng_fav.add(btn_favno);
 		btng_fav.add(btn_favyes);
 		
