@@ -2,12 +2,16 @@ package UserInterface;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.time.LocalDate;
+import java.util.Date;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 public class TaskGui extends JFrame{
@@ -20,8 +24,13 @@ JPanel pnl_favselection=new JPanel();
 //Definition Buttons	
 JButton btn_confirm=new JButton("Confirm");
 JButton btn_cancel=new JButton("Cancel");
-JButton btn_favyes=new JButton("Yes");
-JButton btn_favno=new JButton("No");
+
+//Definition Radio Buttons
+JRadioButton btn_favyes=new JRadioButton("Yes");
+JRadioButton btn_favno=new JRadioButton("No");
+
+//Definiere ButtonGroup
+ButtonGroup btng_fav=new ButtonGroup();
 
 //Definition Lables
 JLabel lbl_TopTitle=new JLabel("New Task",JLabel.CENTER);
@@ -32,12 +41,15 @@ JLabel lbl_favorite=new JLabel("Favorite ",JLabel.CENTER);
 //Definition TextFelder
 JTextField txt_titel=new JTextField();
 
+//Aktuelle Zeit wird definiert
+LocalDate today=LocalDate.now();
+
 //Definition Auswahl Boxen für Tag Monat Jahr
-String tagListe[]= {"1","2","3","2","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
+String tagListe[]= {""+today.getDayOfMonth()+"","1","2","3","2","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
 JComboBox tagAuswahl=new JComboBox(tagListe);
-String monatListe[]= {"1","2","3","2","5","6","7","8","9","10","11","12"};
+String monatListe[]= {""+today.getMonthValue()+"","1","2","3","2","5","6","7","8","9","10","11","12"};
 JComboBox monatAuswahl=new JComboBox(monatListe);
-String jahrListe[]= {"2018","2019","2020","2021"};
+String jahrListe[]= {""+today.getYear()+"","2018","2019","2020","2021"};
 JComboBox jahrAuswahl=new JComboBox(jahrListe);
 
 	public TaskGui() {
@@ -57,6 +69,9 @@ JComboBox jahrAuswahl=new JComboBox(jahrListe);
 		
 		pnl_center.add(pnl_TimeSelection);
 		pnl_center.add(lbl_favorite);
+		
+		btng_fav.add(btn_favno);
+		btng_fav.add(btn_favyes);
 		
 		pnl_favselection.setLayout(new GridLayout(1,2)); //Grid Layout für yes no buttons für favoriten
 		pnl_favselection.add(btn_favno);
