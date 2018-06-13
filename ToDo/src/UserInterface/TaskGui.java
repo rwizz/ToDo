@@ -2,6 +2,7 @@ package UserInterface;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -24,6 +25,8 @@ JPanel pnl_TimeSelection=new JPanel();
 JPanel pnl_btnBottom=new JPanel();
 JPanel pnl_favselection=new JPanel();
 JPanel pnl_DateSelection=new JPanel();
+JPanel pnl_titel=new JPanel();
+JPanel pnl_fav=new JPanel();
 
 //Definition Buttons	
 JButton btn_confirm=new JButton("Confirm");
@@ -64,16 +67,19 @@ JComboBox minuteAuswahl=new JComboBox(minuteListe);
 
 
 public TaskGui() {
-		setSize(750,180);
+		setSize(400,250);
 		setLayout(new BorderLayout());
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		add(lbl_TopTitle,BorderLayout.NORTH); //Titel oben ans Fenster geadded
 		
-		pnl_center.setLayout(new GridLayout(3,2)); //Grid Layout f�r Eingaben definiert
-		pnl_center.add(lbl_titel);
-		pnl_center.add(txt_titel);
-		pnl_center.add(lbl_time);
+		lbl_titel.setPreferredSize(new Dimension(100, 50));
+		pnl_titel.add(lbl_titel);
+		txt_titel.setPreferredSize(new Dimension(250, 50));
+		pnl_titel.add(txt_titel);
+		
+		pnl_center.setLayout(new GridLayout(4,1)); //Grid Layout f�r Eingaben definiert
+		pnl_center.add(pnl_titel);
 		
 		pnl_DateSelection.setLayout(new GridLayout(1,4)); //Grid Layout mit Datum auswahl
 		pnl_DateSelection.add(lbl_date);
@@ -88,17 +94,21 @@ public TaskGui() {
 		
 		pnl_center.add(pnl_DateSelection);
 		pnl_center.add(pnl_TimeSelection);
-		pnl_center.add(lbl_favorite);
 		
 		//Radio Buttons zur Gruppe hinzugef�gt damit nur einer der beiden ausgew�hlt werden kann
 		btng_fav.add(btn_favno);
 		btng_fav.add(btn_favyes);
 		
+		pnl_fav.setLayout(new GridLayout(1, 2));
+		pnl_fav.add(lbl_favorite);
+		
 		pnl_favselection.setLayout(new GridLayout(1,2)); //Grid Layout f�r yes no buttons f�r favoriten
 		pnl_favselection.add(btn_favno);
 		pnl_favselection.add(btn_favyes);
 		
-		pnl_center.add(pnl_favselection); //Panel mit yes no wird in center geadded
+		pnl_fav.add(pnl_favselection);
+		
+		pnl_center.add(pnl_fav); //Panel mit yes no wird in center geadded
 		
 		add(pnl_center,BorderLayout.CENTER);
 		
