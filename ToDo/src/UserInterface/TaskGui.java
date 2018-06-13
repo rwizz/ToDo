@@ -3,6 +3,7 @@ package UserInterface;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 import javax.swing.ButtonGroup;
@@ -43,6 +44,7 @@ JTextField txt_titel=new JTextField();
 
 //Aktuelle Zeit wird definiert
 LocalDate today=LocalDate.now();
+LocalTime today_time=LocalTime.now();
 
 //Definition Auswahl Boxen für Tag Monat Jahr
 String tagListe[]= {""+today.getDayOfMonth()+"","1","2","3","2","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
@@ -51,9 +53,14 @@ String monatListe[]= {""+today.getMonthValue()+"","1","2","3","2","5","6","7","8
 JComboBox monatAuswahl=new JComboBox(monatListe);
 String jahrListe[]= {""+today.getYear()+"","2018","2019","2020","2021"};
 JComboBox jahrAuswahl=new JComboBox(jahrListe);
+String stundeListe[]= {""+today_time.getHour()+"","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"};
+JComboBox stundeAuswahl=new JComboBox(stundeListe);
+String minuteListe[]= {"0","10","20","30","40","50"};
+JComboBox minuteAuswahl=new JComboBox(minuteListe);
 
-	public TaskGui() {
-		setSize(500,180);
+
+public TaskGui() {
+		setSize(600,180);
 		setLayout(new BorderLayout());
 		add(lbl_TopTitle,BorderLayout.NORTH); //Titel oben ans Fenster geadded
 		
@@ -62,10 +69,12 @@ JComboBox jahrAuswahl=new JComboBox(jahrListe);
 		pnl_center.add(txt_titel);
 		pnl_center.add(lbl_time);
 		
-		pnl_TimeSelection.setLayout(new GridLayout(1,3)); //Grid Layout mit Time auswahl
+		pnl_TimeSelection.setLayout(new GridLayout(1,5)); //Grid Layout mit Time auswahl
 		pnl_TimeSelection.add(tagAuswahl);
 		pnl_TimeSelection.add(monatAuswahl);
 		pnl_TimeSelection.add(jahrAuswahl);
+		pnl_TimeSelection.add(stundeAuswahl);
+		pnl_TimeSelection.add(minuteAuswahl);
 		
 		pnl_center.add(pnl_TimeSelection);
 		pnl_center.add(lbl_favorite);
