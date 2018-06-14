@@ -25,8 +25,9 @@ JPanel pnl_TimeSelection=new JPanel();
 JPanel pnl_btnBottom=new JPanel();
 JPanel pnl_favselection=new JPanel();
 JPanel pnl_DateSelection=new JPanel();
-JPanel pnl_titel=new JPanel();
 JPanel pnl_fav=new JPanel();
+JPanel pnl_center_center=new JPanel();
+JPanel pnl_center_left=new JPanel();
 
 //Definition Buttons	
 JButton btn_confirm=new JButton("Confirm");
@@ -41,10 +42,10 @@ ButtonGroup btng_fav=new ButtonGroup();
 
 //Definition Lables
 JLabel lbl_TopTitle=new JLabel("New Task",JLabel.CENTER);
-JLabel lbl_titel=new JLabel("Titel:",JLabel.CENTER);
-JLabel lbl_time=new JLabel("Time",JLabel.CENTER);
-JLabel lbl_favorite=new JLabel("Favorite ",JLabel.CENTER);
-JLabel lbl_date=new JLabel("Date",JLabel.CENTER);
+JLabel lbl_titel=new JLabel("Titel:    ",JLabel.CENTER);
+JLabel lbl_time=new JLabel("Time:    ",JLabel.CENTER);
+JLabel lbl_favorite=new JLabel("Favorite:    ",JLabel.CENTER);
+JLabel lbl_date=new JLabel("Date:    ",JLabel.CENTER);
 
 //Definition TextFelder
 JTextField txt_titel=new JTextField();
@@ -73,14 +74,6 @@ public TaskGui() {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		add(lbl_TopTitle,BorderLayout.NORTH); //Titel oben ans Fenster geadded
 		
-		lbl_titel.setPreferredSize(new Dimension(100, 50));
-		pnl_titel.add(lbl_titel);
-		txt_titel.setPreferredSize(new Dimension(250, 50));
-		pnl_titel.add(txt_titel);
-		
-		pnl_center.setLayout(new GridLayout(4,1)); //Grid Layout fï¿½r Eingaben definiert
-		pnl_center.add(pnl_titel);
-		
 		pnl_DateSelection.setLayout(new GridLayout(1,4)); //Grid Layout mit Datum auswahl
 		pnl_DateSelection.add(lbl_date);
 		pnl_DateSelection.add(tagAuswahl);
@@ -92,23 +85,33 @@ public TaskGui() {
 		pnl_TimeSelection.add(stundeAuswahl);
 		pnl_TimeSelection.add(minuteAuswahl);
 		
-		pnl_center.add(pnl_DateSelection);
-		pnl_center.add(pnl_TimeSelection);
-		
 		//Radio Buttons zur Gruppe hinzugefï¿½gt damit nur einer der beiden ausgewï¿½hlt werden kann
 		btng_fav.add(btn_favno);
 		btng_fav.add(btn_favyes);
-		
-		pnl_fav.setLayout(new GridLayout(1, 2));
-		pnl_fav.add(lbl_favorite);
 		
 		pnl_favselection.setLayout(new GridLayout(1,2)); //Grid Layout fï¿½r yes no buttons fï¿½r favoriten
 		pnl_favselection.add(btn_favno);
 		pnl_favselection.add(btn_favyes);
 		
-		pnl_fav.add(pnl_favselection);
+		//panel das in pnl_center geadded wird und dort im border Layout im center steht
+		pnl_center_center.setLayout(new GridLayout(4, 1));
+		pnl_center_center.add(txt_titel);
+		pnl_center_center.add(pnl_DateSelection);
+		pnl_center_center.add(pnl_TimeSelection);
+		pnl_center_center.add(pnl_favselection);
 		
-		pnl_center.add(pnl_fav); //Panel mit yes no wird in center geadded
+		//panel das in pnl_center geadded wird und dort im border Layout im left steht
+		pnl_center_left.setLayout(new GridLayout(4, 1));
+		pnl_center_left.add(lbl_titel);
+		pnl_center_left.add(lbl_date);
+		pnl_center_left.add(lbl_time);
+		pnl_center_left.add(lbl_favorite);
+		
+		//Border Layout für den Hauptteil des Guis definiert
+		pnl_center.setLayout(new BorderLayout());
+		
+		pnl_center.add(pnl_center_center,BorderLayout.CENTER);
+		pnl_center.add(pnl_center_left,BorderLayout.WEST);
 		
 		add(pnl_center,BorderLayout.CENTER);
 		
