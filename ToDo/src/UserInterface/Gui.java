@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 public class Gui extends JFrame{
 	GuiController gc=new GuiController();
 	JFrame jf_gui=new JFrame();
-	JButton btn_favorites,btn_all,btn_closed,btn_newTask;
+	static JButton btn_favorites,btn_all,btn_closed,btn_newTask;
 	JPanel pnl;
 	JLabel titel;
 	
