@@ -23,7 +23,7 @@ Boolean fav;
 		if(e.getSource()==Gui.btn_all) {
 			for(int i=0;i<tm.anzTask;i++) {
 //				System.out.println(tm.loadData().get(i).getTitle());
-				System.out.println(tm.loadData()[i].getFavorite()+" / "+tm.loadData()[i].getId()+" / "+tm.loadData()[i].getTitle()+" / "+tm.loadData()[i].getTimeCreated()+" / "+tm.loadData()[i].getStatus()+" / "+tm.loadData()[i].getDay()+" / "+tm.loadData()[i].getMonth()+" / "+tm.loadData()[i].getYear()+" / "+tm.loadData()[i].getHour()+" / "+tm.loadData()[i].getMinute());
+				System.out.println(tm.loadData()[i].getFavorite()+" / "+tm.loadData()[i].getId()+" / "+tm.loadData()[i].getTitle()+" / "+tm.loadData()[i].getTimeCreated()+" / "+tm.loadData()[i].getStatus()+" / "+tm.loadData()[i].getDay()+"  "+tm.loadData()[i].getMonth()+"  "+tm.loadData()[i].getYear()+" / "+tm.loadData()[i].getHour()+"  "+tm.loadData()[i].getMinute());
 //				
 			}
 		}
@@ -31,13 +31,13 @@ Boolean fav;
 		if(e.getSource()==TaskGui.btn_confirm) {
 			
 			//es wird überprüft ob der erstellte Task favorisiert sein soll odder nicht
-			if(TaskGui.btng_fav.getSelection()==TaskGui.btn_favyes) {
+			if(TaskGui.btn_favyes.isSelected()) {
 				fav=true;
-			}else if(TaskGui.btng_fav.getSelection()==TaskGui.btn_favno) {
+			}else if(TaskGui.btn_favno.isSelected()) {
 				fav=false;
 			}
 			//task wird erstllt und an Task Manager weitergegeben
-			tm.createTask(TaskGui.txt_titel.getText(), TaskGui.tagAuswahl.getSelectedIndex(), TaskGui.monatAuswahl.getSelectedIndex(), TaskGui.jahrAuswahl.getSelectedIndex(), TaskGui.stundeAuswahl.getSelectedIndex(), TaskGui.minuteAuswahl.getSelectedIndex(), fav);
+			tm.createTask(TaskGui.txt_titel.getText(), Integer.parseInt(TaskGui.tagAuswahl.getSelectedItem().toString()), Integer.parseInt(TaskGui.monatAuswahl.getSelectedItem().toString()), Integer.parseInt(TaskGui.jahrAuswahl.getSelectedItem().toString()), Integer.parseInt(TaskGui.stundeAuswahl.getSelectedItem().toString()), Integer.parseInt(TaskGui.minuteAuswahl.getSelectedItem().toString()), fav);
 			tm.anzTask+=1;
 			TaskGui.reset();
 		}

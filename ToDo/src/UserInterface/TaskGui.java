@@ -123,6 +123,7 @@ public TaskGui() {
 		
 		pnl_btnBottom.setLayout(new GridLayout(1,2)); //Grid Layouout f�r fusszeile mit cancel und confirm buttons
 		btn_confirm.addActionListener(gc);
+		btn_confirm.addActionListener(gc);
 		pnl_btnBottom.add(btn_cancel);
 		pnl_btnBottom.add(btn_confirm);
 		
