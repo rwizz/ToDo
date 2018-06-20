@@ -13,6 +13,7 @@ import UserInterface.GuiController;
 public class TaskManager {
 	Task task=new Task() {};
 	Data.DataIM ctrl=new Data.DataIM();
+public static int anzTask=0; //Anzahl aller Tasks
 	
 	public TaskManager() {
 	
@@ -20,7 +21,7 @@ public class TaskManager {
 	}
 	
 	public void createTask(String title,int day,int month,int year,int hour,int minute,Boolean favorite) {
-		task.setId(GuiController.anzTask);
+		task.setId(anzTask);
 		task.setTitle(title);
 		Timestamp timeCreated=new Timestamp(System.currentTimeMillis());
 		task.setTimeCreated(timeCreated);
@@ -34,12 +35,12 @@ public class TaskManager {
 		writeTask(task);
 	}
 	
-	
+	//Task wird an Controller weitergegeben
 	private void writeTask(Task createdTask) {
 		ctrl.insert(createdTask);
 	}
-	
-	public ArrayList<Task> loadData(){
+	//bekommt Arraylist von Controller
+	public Task[] loadData(){
 		return ctrl.getAllTasks();
 	}
 	

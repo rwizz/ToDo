@@ -11,7 +11,6 @@ public class Controller {
 	}
 	
 	public void insert(Task createdTask) {}
-	public ArrayList<Task> getAllTasks() {
-		return null;}
+	public Task[] getAllTasks() {return null;}
 
 }
