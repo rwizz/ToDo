@@ -13,7 +13,13 @@ import UserInterface.GuiController;
 public class TaskManager {
 	Task task=new Task() {};
 	Data.DataIM ctrl=new Data.DataIM();
-public static int anzTask=0; //Anzahl aller Tasks
+	
+	//ArrayList der Favorisierten Tasks
+
+	public static Task[] arrFavTask=new Task[1000];//Anzahl Tasks
+	
+	public static int anzTask=0; //Anzahl aller Tasks
+	public static int anzFavTask=0; //Anzahl aller Favorisierten Tasks
 	
 	public TaskManager() {
 	
@@ -44,6 +50,26 @@ public static int anzTask=0; //Anzahl aller Tasks
 		return ctrl.getAllTasks();
 	}
 	
-	
+	public void loadFavData() {
+		anzFavTask=0;
+		for(int i=0;i<anzTask;i++) {
+			if(ctrl.getAllTasks()[i].getFavorite()==true) {
+				arrFavTask[i]=new Task() {};
+				arrFavTask[i].setId(ctrl.getAllTasks()[i].getId());
+				arrFavTask[i].setTitle(ctrl.getAllTasks()[i].getTitle());
+				arrFavTask[i].setTimeCreated(ctrl.getAllTasks()[i].getTimeCreated());
+				arrFavTask[i].setDay(ctrl.getAllTasks()[i].getDay());
+				arrFavTask[i].setMonth(ctrl.getAllTasks()[i].getMonth());
+				arrFavTask[i].setYear(ctrl.getAllTasks()[i].getYear());
+				arrFavTask[i].setHour(ctrl.getAllTasks()[i].getHour());
+				arrFavTask[i].setMinute(ctrl.getAllTasks()[i].getMinute());
+				arrFavTask[i].setFavorite(ctrl.getAllTasks()[i].getFavorite());
+				anzFavTask+=1;
+			}
+		}
+	}
+	public Task[] returnFavData() {
+		return arrFavTask;
+	}
 
 }

@@ -36,7 +36,7 @@ JPanel pnl_center_left=new JPanel();
 
 //Definition Buttons	
 static JButton btn_confirm=new JButton("Confirm");
-JButton btn_cancel=new JButton("Cancel");
+static JButton btn_cancel=new JButton("Cancel");
 
 //Definition Radio Buttons
 static JRadioButton btn_favyes=new JRadioButton("Yes");
@@ -123,7 +123,7 @@ public TaskGui() {
 		
 		pnl_btnBottom.setLayout(new GridLayout(1,2)); //Grid Layouout f�r fusszeile mit cancel und confirm buttons
 		btn_confirm.addActionListener(gc);
-		btn_confirm.addActionListener(gc);
+		btn_cancel.addActionListener(gc);
 		pnl_btnBottom.add(btn_cancel);
 		pnl_btnBottom.add(btn_confirm);
 		
