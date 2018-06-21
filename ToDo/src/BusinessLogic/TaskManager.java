@@ -54,16 +54,16 @@ public class TaskManager {
 		anzFavTask=0;
 		for(int i=0;i<anzTask;i++) {
 			if(ctrl.getAllTasks()[i].getFavorite()==true) {
-				arrFavTask[i]=new Task() {};
-				arrFavTask[i].setId(ctrl.getAllTasks()[i].getId());
-				arrFavTask[i].setTitle(ctrl.getAllTasks()[i].getTitle());
-				arrFavTask[i].setTimeCreated(ctrl.getAllTasks()[i].getTimeCreated());
-				arrFavTask[i].setDay(ctrl.getAllTasks()[i].getDay());
-				arrFavTask[i].setMonth(ctrl.getAllTasks()[i].getMonth());
-				arrFavTask[i].setYear(ctrl.getAllTasks()[i].getYear());
-				arrFavTask[i].setHour(ctrl.getAllTasks()[i].getHour());
-				arrFavTask[i].setMinute(ctrl.getAllTasks()[i].getMinute());
-				arrFavTask[i].setFavorite(ctrl.getAllTasks()[i].getFavorite());
+				arrFavTask[anzFavTask]=new Task() {};
+				arrFavTask[anzFavTask].setId(ctrl.getAllTasks()[i].getId());
+				arrFavTask[anzFavTask].setTitle(ctrl.getAllTasks()[i].getTitle());
+				arrFavTask[anzFavTask].setTimeCreated(ctrl.getAllTasks()[i].getTimeCreated());
+				arrFavTask[anzFavTask].setDay(ctrl.getAllTasks()[i].getDay());
+				arrFavTask[anzFavTask].setMonth(ctrl.getAllTasks()[i].getMonth());
+				arrFavTask[anzFavTask].setYear(ctrl.getAllTasks()[i].getYear());
+				arrFavTask[anzFavTask].setHour(ctrl.getAllTasks()[i].getHour());
+				arrFavTask[anzFavTask].setMinute(ctrl.getAllTasks()[i].getMinute());
+				arrFavTask[anzFavTask].setFavorite(ctrl.getAllTasks()[i].getFavorite());
 				anzFavTask+=1;
 			}
 		}

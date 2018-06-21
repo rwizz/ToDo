@@ -22,9 +22,9 @@ public String timefinish;
 		}
 		//Alle Tasks werden ausgegeben
 		if(e.getSource()==Gui.btn_all) {
-			Gui.model.setRowCount(0);
+			Gui.model.setRowCount(0);//Tabelle wird auf zeile 0 gesetzt und somit überschrieben
 			for(int i=0;i<tm.anzTask;i++) {
-//				System.out.println(tm.loadData()[i].getFavorite()+" / "+tm.loadData()[i].getId()+" / "+tm.loadData()[i].getTitle()+" / "+tm.loadData()[i].getTimeCreated()+" / "+tm.loadData()[i].getStatus()+" / "+tm.loadData()[i].getDay()+"  "+tm.loadData()[i].getMonth()+"  "+tm.loadData()[i].getYear()+" / "+tm.loadData()[i].getHour()+"  "+tm.loadData()[i].getMinute());
+//konsole		System.out.println(tm.loadData()[i].getFavorite()+" / "+tm.loadData()[i].getId()+" / "+tm.loadData()[i].getTitle()+" / "+tm.loadData()[i].getTimeCreated()+" / "+tm.loadData()[i].getStatus()+" / "+tm.loadData()[i].getDay()+"  "+tm.loadData()[i].getMonth()+"  "+tm.loadData()[i].getYear()+" / "+tm.loadData()[i].getHour()+"  "+tm.loadData()[i].getMinute());
 				timefinish=tm.loadData()[i].getDay()+"-"+tm.loadData()[i].getMonth()+"-"+tm.loadData()[i].getYear()+" "+tm.loadData()[i].getHour()+":"+tm.loadData()[i].getMinute();
 				Gui.model.addRow(new Object[] {tm.loadData()[i].getFavorite(),tm.loadData()[i].getId(),tm.loadData()[i].getTitle(),tm.loadData()[i].getTimeCreated(),tm.loadData()[i].getStatus(),timefinish});
 			}
@@ -32,11 +32,11 @@ public String timefinish;
 		//Favorisierte Task Werden Ausgegeben
 		if(e.getSource()==Gui.btn_favorites) {
 			tm.loadFavData();
-			Gui.model.setRowCount(0);
+			Gui.model.setRowCount(0);//Tabelle wird auf zeile 0 gesetzt und somit überschrieben
 			for(int i=0;i<tm.anzFavTask;i++) {
-				System.out.println(tm.returnFavData()[i].getFavorite()+" / "+tm.returnFavData()[i].getId()+" / "+tm.returnFavData()[i].getTitle()+" / "+tm.returnFavData()[i].getTimeCreated()+" / "+tm.returnFavData()[i].getStatus()+" / "+tm.returnFavData()[i].getDay()+"  "+tm.returnFavData()[i].getMonth()+"  "+tm.returnFavData()[i].getYear()+" / "+tm.returnFavData()[i].getHour()+"  "+tm.returnFavData()[i].getMinute());
-//				timefinish=tm.returnFavData()[i].getDay()+"-"+tm.returnFavData()[i].getMonth()+"-"+tm.returnFavData()[i].getYear()+" "+tm.returnFavData()[i].getHour()+":"+tm.returnFavData()[i].getMinute();
-//				Gui.model.addRow(new Object[] {tm.returnFavData()[i].getFavorite(),tm.returnFavData()[i].getId(),tm.returnFavData()[i].getTitle(),tm.returnFavData()[i].getTimeCreated(),tm.returnFavData()[i].getStatus(),"timefinish"});
+//konsole		System.out.println(tm.returnFavData()[i].getFavorite()+" / "+tm.returnFavData()[i].getId()+" / "+tm.returnFavData()[i].getTitle()+" / "+tm.returnFavData()[i].getTimeCreated()+" / "+tm.returnFavData()[i].getStatus()+" / "+tm.returnFavData()[i].getDay()+"  "+tm.returnFavData()[i].getMonth()+"  "+tm.returnFavData()[i].getYear()+" / "+tm.returnFavData()[i].getHour()+"  "+tm.returnFavData()[i].getMinute());
+				timefinish=tm.returnFavData()[i].getDay()+"-"+tm.returnFavData()[i].getMonth()+"-"+tm.returnFavData()[i].getYear()+" "+tm.returnFavData()[i].getHour()+":"+tm.returnFavData()[i].getMinute();
+				Gui.model.addRow(new Object[] {tm.returnFavData()[i].getFavorite(),tm.returnFavData()[i].getId(),tm.returnFavData()[i].getTitle(),tm.returnFavData()[i].getTimeCreated(),tm.returnFavData()[i].getStatus(),timefinish});
 			}
 		}
 		
