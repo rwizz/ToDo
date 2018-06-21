@@ -7,6 +7,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class Gui extends JFrame{
 	GuiController gc=new GuiController();
@@ -19,20 +22,27 @@ public class Gui extends JFrame{
 	JPanel pnl_Menu;
 	
 	//JLabel definition
-	JLabel titel;
+	JLabel lbl_titel;
+	
+	//JTabel Componenten
+	static JTable tbl_task=new  JTable(new DefaultTableModel(new Object[]{"Favorite","ID","Titel","Date of Creation","Status","Date to Finish"},0));
+	String[] tbl_titel= {"Favorite","ID","Titel","Date of Creation","Status","Date to Finish"};
+	//Default TableModel bekommen
+	static DefaultTableModel model=(DefaultTableModel) tbl_task.getModel();
+	//JScroll pane iniziert
+	JScrollPane scrollPanel;
 			
 	public Gui() {
+		
 		setLayout(new BorderLayout());
-		setSize(500, 150);
+		setSize(500, 500);
 		//Grundsätzlicher Aufbau----------------------------------
 		pnl_gui.setLayout(new BorderLayout());
-		
-		titel=new JLabel("To Don't",JLabel.CENTER);
-		pnl_gui.add(titel, BorderLayout.NORTH);
+		lbl_titel=new JLabel("To Don't",JLabel.CENTER);
+		pnl_gui.add(lbl_titel, BorderLayout.NORTH);
 		btn_newTask=new JButton("new Task");
 		btn_newTask.addActionListener(gc);
 		pnl_gui.add(btn_newTask, BorderLayout.SOUTH);
-		
 		btn_favorites=new JButton("Favorites");
 		btn_favorites.addActionListener(gc);
 		btn_all=new JButton("All");
@@ -51,6 +61,8 @@ public class Gui extends JFrame{
 		//Grundsätzlicher Aufbau ende ------------------------
 		
 		//Darstellung Task angfang
+		scrollPanel=new JScrollPane(tbl_task);
+		add(scrollPanel, BorderLayout.CENTER);
 		
 		setVisible(true);
 	}

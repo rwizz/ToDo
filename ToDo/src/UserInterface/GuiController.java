@@ -4,11 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
+import javax.swing.table.DefaultTableModel;
 
 public class GuiController implements ActionListener{
 BusinessLogic.TaskManager tm=new BusinessLogic.TaskManager();
 Boolean fav;
-
+public String timefinish;
 	public GuiController() {
 		
 	}
@@ -21,17 +22,21 @@ Boolean fav;
 		}
 		//Alle Tasks werden ausgegeben
 		if(e.getSource()==Gui.btn_all) {
+			Gui.model.setRowCount(0);
 			for(int i=0;i<tm.anzTask;i++) {
-//				System.out.println(tm.loadData().get(i).getTitle());
-				System.out.println(tm.loadData()[i].getFavorite()+" / "+tm.loadData()[i].getId()+" / "+tm.loadData()[i].getTitle()+" / "+tm.loadData()[i].getTimeCreated()+" / "+tm.loadData()[i].getStatus()+" / "+tm.loadData()[i].getDay()+"  "+tm.loadData()[i].getMonth()+"  "+tm.loadData()[i].getYear()+" / "+tm.loadData()[i].getHour()+"  "+tm.loadData()[i].getMinute());
-//				
+//				System.out.println(tm.loadData()[i].getFavorite()+" / "+tm.loadData()[i].getId()+" / "+tm.loadData()[i].getTitle()+" / "+tm.loadData()[i].getTimeCreated()+" / "+tm.loadData()[i].getStatus()+" / "+tm.loadData()[i].getDay()+"  "+tm.loadData()[i].getMonth()+"  "+tm.loadData()[i].getYear()+" / "+tm.loadData()[i].getHour()+"  "+tm.loadData()[i].getMinute());
+				timefinish=tm.loadData()[i].getDay()+"-"+tm.loadData()[i].getMonth()+"-"+tm.loadData()[i].getYear()+" "+tm.loadData()[i].getHour()+":"+tm.loadData()[i].getMinute();
+				Gui.model.addRow(new Object[] {tm.loadData()[i].getFavorite(),tm.loadData()[i].getId(),tm.loadData()[i].getTitle(),tm.loadData()[i].getTimeCreated(),tm.loadData()[i].getStatus(),timefinish});
 			}
 		}
 		//Favorisierte Task Werden Ausgegeben
 		if(e.getSource()==Gui.btn_favorites) {
 			tm.loadFavData();
+			Gui.model.setRowCount(0);
 			for(int i=0;i<tm.anzFavTask;i++) {
 				System.out.println(tm.returnFavData()[i].getFavorite()+" / "+tm.returnFavData()[i].getId()+" / "+tm.returnFavData()[i].getTitle()+" / "+tm.returnFavData()[i].getTimeCreated()+" / "+tm.returnFavData()[i].getStatus()+" / "+tm.returnFavData()[i].getDay()+"  "+tm.returnFavData()[i].getMonth()+"  "+tm.returnFavData()[i].getYear()+" / "+tm.returnFavData()[i].getHour()+"  "+tm.returnFavData()[i].getMinute());
+//				timefinish=tm.returnFavData()[i].getDay()+"-"+tm.returnFavData()[i].getMonth()+"-"+tm.returnFavData()[i].getYear()+" "+tm.returnFavData()[i].getHour()+":"+tm.returnFavData()[i].getMinute();
+//				Gui.model.addRow(new Object[] {tm.returnFavData()[i].getFavorite(),tm.returnFavData()[i].getId(),tm.returnFavData()[i].getTitle(),tm.returnFavData()[i].getTimeCreated(),tm.returnFavData()[i].getStatus(),"timefinish"});
 			}
 		}
 		
@@ -50,6 +55,7 @@ Boolean fav;
 			TaskGui.reset();
 		}
 		
+		//Wenn Knopf Cancel gedrückt wird
 		if(e.getSource()==TaskGui.btn_cancel) {
 			TaskGui.reset();
 			TaskGui.jf.setVisible(false);
