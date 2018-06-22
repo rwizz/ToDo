@@ -6,8 +6,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 
+import BusinessLogic.ReminderThread;
+
 public class GuiController implements ActionListener{
 BusinessLogic.TaskManager tm=new BusinessLogic.TaskManager();
+ReminderThread rth=new ReminderThread();
 Boolean fav;
 public String timefinish;
 	public GuiController() {
@@ -59,6 +62,10 @@ public String timefinish;
 		if(e.getSource()==TaskGui.btn_cancel) {
 			TaskGui.reset();
 			TaskGui.jf.setVisible(false);
+		}
+		//Knopf um den geänderten Status zu übernehmen
+		if(e.getSource()==Gui.btn_setState) {
+			
 		}
 		
 	}

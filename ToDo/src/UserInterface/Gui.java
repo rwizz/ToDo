@@ -16,6 +16,7 @@ public class Gui extends JFrame{
 	
 	//Definition Button
 	static JButton btn_favorites,btn_all,btn_closed,btn_newTask;
+	static JButton btn_setState;
 	
 	//JPanel definitions
 	JPanel pnl_gui=new JPanel();
@@ -36,6 +37,7 @@ public class Gui extends JFrame{
 		
 		setLayout(new BorderLayout());
 		setSize(500, 500);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//Grundsätzlicher Aufbau----------------------------------
 		pnl_gui.setLayout(new BorderLayout());
 		lbl_titel=new JLabel("To Don't",JLabel.CENTER);
@@ -64,6 +66,9 @@ public class Gui extends JFrame{
 		scrollPanel=new JScrollPane(tbl_task);
 		add(scrollPanel, BorderLayout.CENTER);
 		
+		btn_setState=new JButton("Statusänderungen übernehmen");
+		btn_setState.addActionListener(gc);
+		add(btn_setState, BorderLayout.SOUTH);
 		setVisible(true);
 	}
 

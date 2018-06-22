@@ -13,6 +13,7 @@ import UserInterface.GuiController;
 public class TaskManager {
 	Task task=new Task() {};
 	Data.DataIM ctrl=new Data.DataIM();
+	ReminderThread rth=new ReminderThread();
 	
 	//ArrayList der Favorisierten Tasks
 
