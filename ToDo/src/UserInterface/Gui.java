@@ -18,7 +18,7 @@ public class Gui extends JFrame{
 	static JFrame jf=new JFrame();
 	
 	//Definition Button
-//	static JButton btn_favorites,btn_all,btn_closed,btn_newTask; --- Für Status später
+//	static JButton btn_favorites,btn_all,btn_closed,btn_newTask; --- Fï¿½r Status spï¿½ter
 	static JButton btn_favorites,btn_all,btn_newTask;
 //	static JButton btn_setState;
 	
@@ -30,8 +30,8 @@ public class Gui extends JFrame{
 	JLabel lbl_titel;
 	
 	//JTabel Componenten
-	static JTable tbl_task=new  JTable(new DefaultTableModel(new Object[]{"Favorite","ID","Titel","Date of Creation","Status","Date to Finish"},0));
-	String[] tbl_titel= {"Favorite","ID","Titel","Date of Creation","Status","Date to Finish"};
+	static JTable tbl_task=new  JTable(new DefaultTableModel(new Object[]{"Favorite","ID","Titel","Date of Creation","Date to Finish"},0));
+	String[] tbl_titel= {"Favorite","ID","Titel","Date of Creation","Date to Finish"};
 	//Default TableModel bekommen
 	static DefaultTableModel model=(DefaultTableModel) tbl_task.getModel();
 	//JScroll pane iniziert
@@ -42,7 +42,7 @@ public class Gui extends JFrame{
 		jf.setLayout(new BorderLayout());
 		jf.setSize(1000, 105);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//Grundsätzlicher Aufbau----------------------------------
+		//Grundsï¿½tzlicher Aufbau----------------------------------
 		pnl_gui.setLayout(new BorderLayout());
 		lbl_titel=new JLabel("To Don't",JLabel.CENTER);
 		pnl_gui.add(lbl_titel, BorderLayout.NORTH);
@@ -53,27 +53,27 @@ public class Gui extends JFrame{
 		btn_favorites.addActionListener(gc);
 		btn_all=new JButton("All");
 		btn_all.addActionListener(gc);
-//		btn_closed=new JButton("Closed"); --- Für Status später
-//		btn_closed.addActionListener(gc); --- Für Status später
+//		btn_closed=new JButton("Closed"); --- Fï¿½r Status spï¿½ter
+//		btn_closed.addActionListener(gc); --- Fï¿½r Status spï¿½ter
 		
 		pnl_Menu=new JPanel();
-//		pnl_Menu.setLayout(new GridLayout(1,3)); --- Für Status später
+//		pnl_Menu.setLayout(new GridLayout(1,3)); --- Fï¿½r Status spï¿½ter
 		pnl_Menu.setLayout(new GridLayout(1,2));
 		pnl_Menu.add(btn_favorites);
 		pnl_Menu.add(btn_all);
-//		pnl_Menu.add(btn_closed); --- Für Status später
+//		pnl_Menu.add(btn_closed); --- Fï¿½r Status spï¿½ter
 		
 		pnl_gui.add(pnl_Menu,BorderLayout.CENTER);
 		jf.add(pnl_gui,BorderLayout.NORTH);
-		//Grundsätzlicher Aufbau ende ------------------------
+		//Grundsï¿½tzlicher Aufbau ende ------------------------
 		
 		//Darstellung Task angfang
 		scrollPanel=new JScrollPane(tbl_task);
 		jf.add(scrollPanel, BorderLayout.CENTER);
 		
-//		btn_setState=new JButton("Statusänderungen übernehmen"); --- Für Status später
-//		btn_setState.addActionListener(gc); --- Für Status später
-//		add(btn_setState, BorderLayout.SOUTH); --- Für Status später
+//		btn_setState=new JButton("Statusï¿½nderungen ï¿½bernehmen"); --- Fï¿½r Status spï¿½ter
+//		btn_setState.addActionListener(gc); --- Fï¿½r Status spï¿½ter
+//		add(btn_setState, BorderLayout.SOUTH); --- Fï¿½r Status spï¿½ter
 		jf.setVisible(true);
 	}
 	
