@@ -15,8 +15,9 @@ public class Gui extends JFrame{
 	GuiController gc=new GuiController();
 	
 	//Definition Button
-	static JButton btn_favorites,btn_all,btn_closed,btn_newTask;
-	static JButton btn_setState;
+//	static JButton btn_favorites,btn_all,btn_closed,btn_newTask; --- Für Status später
+	static JButton btn_favorites,btn_all,btn_newTask;
+//	static JButton btn_setState;
 	
 	//JPanel definitions
 	JPanel pnl_gui=new JPanel();
@@ -49,14 +50,15 @@ public class Gui extends JFrame{
 		btn_favorites.addActionListener(gc);
 		btn_all=new JButton("All");
 		btn_all.addActionListener(gc);
-		btn_closed=new JButton("Closed");
-		btn_closed.addActionListener(gc);
+//		btn_closed=new JButton("Closed"); --- Für Status später
+//		btn_closed.addActionListener(gc); --- Für Status später
 		
 		pnl_Menu=new JPanel();
-		pnl_Menu.setLayout(new GridLayout(1,3));
+//		pnl_Menu.setLayout(new GridLayout(1,3)); --- Für Status später
+		pnl_Menu.setLayout(new GridLayout(1,2));
 		pnl_Menu.add(btn_favorites);
 		pnl_Menu.add(btn_all);
-		pnl_Menu.add(btn_closed);
+//		pnl_Menu.add(btn_closed); --- Für Status später
 		
 		pnl_gui.add(pnl_Menu,BorderLayout.CENTER);
 		add(pnl_gui,BorderLayout.NORTH);
@@ -66,9 +68,9 @@ public class Gui extends JFrame{
 		scrollPanel=new JScrollPane(tbl_task);
 		add(scrollPanel, BorderLayout.CENTER);
 		
-		btn_setState=new JButton("Statusänderungen übernehmen");
-		btn_setState.addActionListener(gc);
-		add(btn_setState, BorderLayout.SOUTH);
+//		btn_setState=new JButton("Statusänderungen übernehmen"); --- Für Status später
+//		btn_setState.addActionListener(gc); --- Für Status später
+//		add(btn_setState, BorderLayout.SOUTH); --- Für Status später
 		setVisible(true);
 	}
 

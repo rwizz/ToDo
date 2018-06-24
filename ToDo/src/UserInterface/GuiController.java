@@ -63,10 +63,10 @@ public String timefinish;
 			TaskGui.reset();
 			TaskGui.jf.setVisible(false);
 		}
-		//Knopf um den geänderten Status zu übernehmen
-		if(e.getSource()==Gui.btn_setState) {
-			
-		}
+		//Knopf um den geänderten Status zu übernehmen --- Für Status später
+//		if(e.getSource()==Gui.btn_setState) {
+//			
+//		}
 		
 	}
 

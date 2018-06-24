@@ -6,18 +6,19 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import DTO.Task;
+import DTO.Task_Fav;
 import Data.Controller;
 import Data.DataIM;
 import UserInterface.GuiController;
 
 public class TaskManager {
 	Task task=new Task() {};
-	Data.DataIM ctrl=new Data.DataIM();
+	static Data.DataIM ctrl=new Data.DataIM();
 	ReminderThread rth=new ReminderThread();
 	
 	//ArrayList der Favorisierten Tasks
 
-	public static Task[] arrFavTask=new Task[1000];//Anzahl Tasks
+	public static Task_Fav[] arrFavTask=new Task_Fav[1000];//Anzahl Tasks
 	
 	public static int anzTask=0; //Anzahl aller Tasks
 	public static int anzFavTask=0; //Anzahl aller Favorisierten Tasks
@@ -51,11 +52,11 @@ public class TaskManager {
 		return ctrl.getAllTasks();
 	}
 	
-	public void loadFavData() {
+	public static void loadFavData() {
 		anzFavTask=0;
 		for(int i=0;i<anzTask;i++) {
 			if(ctrl.getAllTasks()[i].getFavorite()==true) {
-				arrFavTask[anzFavTask]=new Task() {};
+				arrFavTask[anzFavTask]=new Task_Fav() {};
 				arrFavTask[anzFavTask].setId(ctrl.getAllTasks()[i].getId());
 				arrFavTask[anzFavTask].setTitle(ctrl.getAllTasks()[i].getTitle());
 				arrFavTask[anzFavTask].setTimeCreated(ctrl.getAllTasks()[i].getTimeCreated());
@@ -69,7 +70,7 @@ public class TaskManager {
 			}
 		}
 	}
-	public Task[] returnFavData() {
+	public static Task_Fav[] returnFavData() {
 		return arrFavTask;
 	}
 

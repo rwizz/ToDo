@@ -68,7 +68,7 @@ static String jahrListe[]= {""+today.getYear()+"","2018","2019","2020","2021"};
 static JComboBox jahrAuswahl=new JComboBox(jahrListe);
 static String stundeListe[]= {""+today_time.getHour()+"","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"};
 static JComboBox stundeAuswahl=new JComboBox(stundeListe);
-static String minuteListe[]= {"00","10","20","30","40","50"};
+static String minuteListe[]= {"58","10","20","30","40","50"};
 static JComboBox minuteAuswahl=new JComboBox(minuteListe);
 
 
