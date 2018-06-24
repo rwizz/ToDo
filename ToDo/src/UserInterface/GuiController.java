@@ -28,6 +28,7 @@ public String timefinish;
 		}
 		//Alle Tasks werden ausgegeben
 		if(e.getSource()==Gui.btn_all) {
+			Gui.jf.setSize(1000,500);
 			Gui.model.setRowCount(0);//Tabelle wird auf zeile 0 gesetzt und somit überschrieben
 			for(int i=0;i<tm.anzTask;i++) {
 //konsole		System.out.println(tm.loadData()[i].getFavorite()+" / "+tm.loadData()[i].getId()+" / "+tm.loadData()[i].getTitle()+" / "+tm.loadData()[i].getTimeCreated()+" / "+tm.loadData()[i].getStatus()+" / "+tm.loadData()[i].getDay()+"  "+tm.loadData()[i].getMonth()+"  "+tm.loadData()[i].getYear()+" / "+tm.loadData()[i].getHour()+"  "+tm.loadData()[i].getMinute());
@@ -37,6 +38,7 @@ public String timefinish;
 		}
 		//Favorisierte Task Werden Ausgegeben
 		if(e.getSource()==Gui.btn_favorites) {
+			Gui.jf.setSize(1000,500);
 			tm.loadFavData();
 			Gui.model.setRowCount(0);//Tabelle wird auf zeile 0 gesetzt und somit überschrieben
 			for(int i=0;i<tm.anzFavTask;i++) {

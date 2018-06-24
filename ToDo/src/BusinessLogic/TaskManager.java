@@ -27,7 +27,7 @@ public class TaskManager {
 	
 		
 	}
-	
+	//Task wird erstellt und der Methode write Task weitergegeben
 	public void createTask(String title,int day,int month,int year,int hour,int minute,Boolean favorite) {
 		task.setId(anzTask);
 		task.setTitle(title);
@@ -51,7 +51,7 @@ public class TaskManager {
 	public Task[] loadData(){
 		return ctrl.getAllTasks();
 	}
-	
+	//Ladet alle Favoriten in die ArrayList
 	public static void loadFavData() {
 		anzFavTask=0;
 		for(int i=0;i<anzTask;i++) {
@@ -70,6 +70,7 @@ public class TaskManager {
 			}
 		}
 	}
+	//Gibt die ArrayList mit den Favorisierten Tasks zurück
 	public static Task_Fav[] returnFavData() {
 		return arrFavTask;
 	}

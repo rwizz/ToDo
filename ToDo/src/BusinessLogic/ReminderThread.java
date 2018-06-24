@@ -22,12 +22,9 @@ static JOptionPane[] arrPne=new JOptionPane[1000];
 			}
 		}
 		
-		
+		//überprüft alle ob einer der Favorisierten Tasks jetzt beendet werden sollte und führ die Reminder Methode aus
 		while(true) {
 			time=LocalTime.now();
-			
-			System.out.println("thread läuft"+time);
-			System.out.println(time.getMinute());
 			int anzPne=0;
 			TaskManager.loadFavData();
 			for(int i=0;i<TaskManager.anzFavTask;i++) {

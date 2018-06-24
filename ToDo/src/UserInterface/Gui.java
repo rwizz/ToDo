@@ -14,6 +14,9 @@ import javax.swing.table.DefaultTableModel;
 public class Gui extends JFrame{
 	GuiController gc=new GuiController();
 	
+	//Jframe definiert
+	static JFrame jf=new JFrame();
+	
 	//Definition Button
 //	static JButton btn_favorites,btn_all,btn_closed,btn_newTask; --- Für Status später
 	static JButton btn_favorites,btn_all,btn_newTask;
@@ -36,9 +39,9 @@ public class Gui extends JFrame{
 			
 	public Gui() {
 		
-		setLayout(new BorderLayout());
-		setSize(500, 105);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jf.setLayout(new BorderLayout());
+		jf.setSize(1000, 105);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//Grundsätzlicher Aufbau----------------------------------
 		pnl_gui.setLayout(new BorderLayout());
 		lbl_titel=new JLabel("To Don't",JLabel.CENTER);
@@ -61,17 +64,18 @@ public class Gui extends JFrame{
 //		pnl_Menu.add(btn_closed); --- Für Status später
 		
 		pnl_gui.add(pnl_Menu,BorderLayout.CENTER);
-		add(pnl_gui,BorderLayout.NORTH);
+		jf.add(pnl_gui,BorderLayout.NORTH);
 		//Grundsätzlicher Aufbau ende ------------------------
 		
 		//Darstellung Task angfang
 		scrollPanel=new JScrollPane(tbl_task);
-		add(scrollPanel, BorderLayout.CENTER);
+		jf.add(scrollPanel, BorderLayout.CENTER);
 		
 //		btn_setState=new JButton("Statusänderungen übernehmen"); --- Für Status später
 //		btn_setState.addActionListener(gc); --- Für Status später
 //		add(btn_setState, BorderLayout.SOUTH); --- Für Status später
-		setVisible(true);
+		jf.setVisible(true);
 	}
+	
 
 }
