@@ -47,9 +47,9 @@ static ButtonGroup btng_fav=new ButtonGroup();
 
 //Definition Lables
 JLabel lbl_TopTitle=new JLabel("New Task",JLabel.CENTER);
-JLabel lbl_titel=new JLabel("Titel:    ",JLabel.CENTER);
+static JLabel lbl_titel=new JLabel("Titel:    ",JLabel.CENTER);
 JLabel lbl_time=new JLabel("Time:    ",JLabel.CENTER);
-JLabel lbl_favorite=new JLabel("Favorite:    ",JLabel.CENTER);
+static JLabel lbl_favorite=new JLabel("Favorite:    ",JLabel.CENTER);
 JLabel lbl_date=new JLabel("Date:    ",JLabel.CENTER);
 
 //Definition TextFelder
@@ -68,7 +68,7 @@ static String jahrListe[]= {""+today.getYear()+"","2018","2019","2020","2021"};
 static JComboBox jahrAuswahl=new JComboBox(jahrListe);
 static String stundeListe[]= {""+today_time.getHour()+"","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"};
 static JComboBox stundeAuswahl=new JComboBox(stundeListe);
-static String minuteListe[]= {"58","10","20","30","40","50"};
+static String minuteListe[]= {"56","10","15","20","25","30","35","40","45","50","55"};
 static JComboBox minuteAuswahl=new JComboBox(minuteListe);
 
 
@@ -132,13 +132,14 @@ public TaskGui() {
 	}
 
 	public static void reset() {
-		txt_titel.setText(" ");
+		txt_titel.setText("");
 		tagAuswahl.setSelectedIndex(0);
 		monatAuswahl.setSelectedIndex(0);
 		jahrAuswahl.setSelectedIndex(0);
 		stundeAuswahl.setSelectedIndex(0);
 		minuteAuswahl.setSelectedIndex(0);
 		btng_fav.clearSelection();
+		jf.setState(JFrame.ICONIFIED);
 	}
 
 }

@@ -1,8 +1,10 @@
 package UserInterface;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 
@@ -11,7 +13,7 @@ import BusinessLogic.ReminderThread;
 public class GuiController implements ActionListener{
 BusinessLogic.TaskManager tm=new BusinessLogic.TaskManager();
 ReminderThread rth=new ReminderThread();
-Boolean fav;
+Boolean fav,complete;
 public String timefinish;
 	public GuiController() {
 		
@@ -21,7 +23,8 @@ public String timefinish;
 	public void actionPerformed(ActionEvent e) {
 		//Neuer Task wird vom Gui erstellt
 		if(e.getSource()==Gui.btn_newTask) {
-			new TaskGui();
+			TaskGui.jf.setState(JFrame.NORMAL);
+			
 		}
 		//Alle Tasks werden ausgegeben
 		if(e.getSource()==Gui.btn_all) {
@@ -45,23 +48,39 @@ public String timefinish;
 		
 		//Aktion die Passiert wenn der Button Comfirm gedrückt wird
 		if(e.getSource()==TaskGui.btn_confirm) {
+			if (TaskGui.txt_titel.getText().isEmpty()) {
+				TaskGui.lbl_titel.setForeground(Color.red);
+				complete=false;
+			}else {
+				TaskGui.lbl_titel.setForeground(Color.black);
+				complete=true;
+			}
 			
 			//es wird überprüft ob der erstellte Task favorisiert sein soll odder nicht
 			if(TaskGui.btn_favyes.isSelected()) {
+				TaskGui.lbl_titel.setForeground(Color.black);
 				fav=true;
+				complete=true;
 			}else if(TaskGui.btn_favno.isSelected()) {
+				TaskGui.lbl_titel.setForeground(Color.black);
 				fav=false;
+				complete=true;
+			}else {
+				TaskGui.lbl_favorite.setForeground(Color.red);
+				complete=false;
 			}
+			if(complete==true) {
 			//task wird erstllt und an Task Manager weitergegeben
 			tm.createTask(TaskGui.txt_titel.getText(), Integer.parseInt(TaskGui.tagAuswahl.getSelectedItem().toString()), Integer.parseInt(TaskGui.monatAuswahl.getSelectedItem().toString()), Integer.parseInt(TaskGui.jahrAuswahl.getSelectedItem().toString()), Integer.parseInt(TaskGui.stundeAuswahl.getSelectedItem().toString()), Integer.parseInt(TaskGui.minuteAuswahl.getSelectedItem().toString()), fav);
 			tm.anzTask+=1;
-			TaskGui.reset();
+			TaskGui.reset();	
+			}
+			
 		}
 		
 		//Wenn Knopf Cancel gedrückt wird
 		if(e.getSource()==TaskGui.btn_cancel) {
 			TaskGui.reset();
-			TaskGui.jf.setVisible(false);
 		}
 		//Knopf um den geänderten Status zu übernehmen --- Für Status später
 //		if(e.getSource()==Gui.btn_setState) {
