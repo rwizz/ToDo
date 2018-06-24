@@ -29,26 +29,26 @@ public String timefinish;
 		//Alle Tasks werden ausgegeben
 		if(e.getSource()==Gui.btn_all) {
 			Gui.jf.setSize(1000,500);
-			Gui.model.setRowCount(0);//Tabelle wird auf zeile 0 gesetzt und somit überschrieben
+			Gui.model.setRowCount(0);//Tabelle wird auf zeile 0 gesetzt und somit ï¿½berschrieben
 			for(int i=0;i<tm.anzTask;i++) {
 //konsole		System.out.println(tm.loadData()[i].getFavorite()+" / "+tm.loadData()[i].getId()+" / "+tm.loadData()[i].getTitle()+" / "+tm.loadData()[i].getTimeCreated()+" / "+tm.loadData()[i].getStatus()+" / "+tm.loadData()[i].getDay()+"  "+tm.loadData()[i].getMonth()+"  "+tm.loadData()[i].getYear()+" / "+tm.loadData()[i].getHour()+"  "+tm.loadData()[i].getMinute());
 				timefinish=tm.loadData()[i].getDay()+"-"+tm.loadData()[i].getMonth()+"-"+tm.loadData()[i].getYear()+" "+tm.loadData()[i].getHour()+":"+tm.loadData()[i].getMinute();
-				Gui.model.addRow(new Object[] {tm.loadData()[i].getFavorite(),tm.loadData()[i].getId(),tm.loadData()[i].getTitle(),tm.loadData()[i].getTimeCreated(),tm.loadData()[i].getStatus(),timefinish});
+				Gui.model.addRow(new Object[] {tm.loadData()[i].getFavorite(),tm.loadData()[i].getId(),tm.loadData()[i].getTitle(),tm.loadData()[i].getTimeCreated(),timefinish});
 			}
 		}
 		//Favorisierte Task Werden Ausgegeben
 		if(e.getSource()==Gui.btn_favorites) {
 			Gui.jf.setSize(1000,500);
 			tm.loadFavData();
-			Gui.model.setRowCount(0);//Tabelle wird auf zeile 0 gesetzt und somit überschrieben
+			Gui.model.setRowCount(0);//Tabelle wird auf zeile 0 gesetzt und somit ï¿½berschrieben
 			for(int i=0;i<tm.anzFavTask;i++) {
 //konsole		System.out.println(tm.returnFavData()[i].getFavorite()+" / "+tm.returnFavData()[i].getId()+" / "+tm.returnFavData()[i].getTitle()+" / "+tm.returnFavData()[i].getTimeCreated()+" / "+tm.returnFavData()[i].getStatus()+" / "+tm.returnFavData()[i].getDay()+"  "+tm.returnFavData()[i].getMonth()+"  "+tm.returnFavData()[i].getYear()+" / "+tm.returnFavData()[i].getHour()+"  "+tm.returnFavData()[i].getMinute());
 				timefinish=tm.returnFavData()[i].getDay()+"-"+tm.returnFavData()[i].getMonth()+"-"+tm.returnFavData()[i].getYear()+" "+tm.returnFavData()[i].getHour()+":"+tm.returnFavData()[i].getMinute();
-				Gui.model.addRow(new Object[] {tm.returnFavData()[i].getFavorite(),tm.returnFavData()[i].getId(),tm.returnFavData()[i].getTitle(),tm.returnFavData()[i].getTimeCreated(),tm.returnFavData()[i].getStatus(),timefinish});
+				Gui.model.addRow(new Object[] {tm.returnFavData()[i].getFavorite(),tm.returnFavData()[i].getId(),tm.returnFavData()[i].getTitle(),tm.returnFavData()[i].getTimeCreated(),timefinish});
 			}
 		}
 		
-		//Aktion die Passiert wenn der Button Comfirm gedrückt wird
+		//Aktion die Passiert wenn der Button Comfirm gedrï¿½ckt wird
 		if(e.getSource()==TaskGui.btn_confirm) {
 			if (TaskGui.txt_titel.getText().isEmpty()) {
 				TaskGui.lbl_titel.setForeground(Color.red);
@@ -58,7 +58,7 @@ public String timefinish;
 				complete=true;
 			}
 			
-			//es wird überprüft ob der erstellte Task favorisiert sein soll odder nicht
+			//es wird ï¿½berprï¿½ft ob der erstellte Task favorisiert sein soll odder nicht
 			if(TaskGui.btn_favyes.isSelected()) {
 				TaskGui.lbl_titel.setForeground(Color.black);
 				fav=true;
@@ -80,11 +80,11 @@ public String timefinish;
 			
 		}
 		
-		//Wenn Knopf Cancel gedrückt wird
+		//Wenn Knopf Cancel gedrï¿½ckt wird
 		if(e.getSource()==TaskGui.btn_cancel) {
 			TaskGui.reset();
 		}
-		//Knopf um den geänderten Status zu übernehmen --- Für Status später
+		//Knopf um den geï¿½nderten Status zu ï¿½bernehmen --- Fï¿½r Status spï¿½ter
 //		if(e.getSource()==Gui.btn_setState) {
 //			
 //		}
