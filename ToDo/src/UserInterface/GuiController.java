@@ -12,7 +12,6 @@ import BusinessLogic.ReminderThread;
 
 public class GuiController implements ActionListener{
 BusinessLogic.TaskManager tm=new BusinessLogic.TaskManager();
-ReminderThread rth=new ReminderThread();
 Boolean fav,complete;
 public String timefinish;
 	public GuiController() {
@@ -33,7 +32,8 @@ public String timefinish;
 			for(int i=0;i<tm.anzTask;i++) {
 //konsole		System.out.println(tm.loadData()[i].getFavorite()+" / "+tm.loadData()[i].getId()+" / "+tm.loadData()[i].getTitle()+" / "+tm.loadData()[i].getTimeCreated()+" / "+tm.loadData()[i].getStatus()+" / "+tm.loadData()[i].getDay()+"  "+tm.loadData()[i].getMonth()+"  "+tm.loadData()[i].getYear()+" / "+tm.loadData()[i].getHour()+"  "+tm.loadData()[i].getMinute());
 				timefinish=tm.loadData()[i].getDay()+"-"+tm.loadData()[i].getMonth()+"-"+tm.loadData()[i].getYear()+" "+tm.loadData()[i].getHour()+":"+tm.loadData()[i].getMinute();
-				Gui.model.addRow(new Object[] {tm.loadData()[i].getFavorite(),tm.loadData()[i].getId(),tm.loadData()[i].getTitle(),tm.loadData()[i].getTimeCreated(),timefinish});
+				Gui.model.addRow(new Object[] {tm.loadData()[i].getFavorite(),tm.loadData()[i].getId(),tm.loadData(
+						)[i].getTitle(),tm.loadData()[i].getTimeCreated(),timefinish});
 			}
 		}
 		//Favorisierte Task Werden Ausgegeben
