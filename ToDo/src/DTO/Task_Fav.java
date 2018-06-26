@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 		super(id,title,TimeCreated,status,day,month,year,hour,minute,favorite);
 	}
 	
-	public static void reminder(JOptionPane pne,String titel) {
+	public void reminder(JOptionPane pne,String titel) {
 		pne.showMessageDialog(null,"Der Task mit dem Titel " +titel+ " muss abgeschlossen werden");
 		
 	}
