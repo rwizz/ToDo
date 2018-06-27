@@ -24,6 +24,7 @@ static JOptionPane[] arrPne=new JOptionPane[1000];
 		
 		//überprüft alle ob einer der Favorisierten Tasks jetzt beendet werden sollte und führ die Reminder Methode aus
 		while(true) {
+			
 			time=LocalTime.now();
 			int anzPne=0;
 			TaskManager.loadFavData();

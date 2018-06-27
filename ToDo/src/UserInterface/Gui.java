@@ -34,7 +34,7 @@ public class Gui extends JFrame{
 	String[] tbl_titel= {"Favorite","ID","Titel","Date of Creation","Date to Finish"};
 	//Default TableModel bekommen
 	static DefaultTableModel model=(DefaultTableModel) tbl_task.getModel();
-	//JScroll pane iniziert
+	//JScroll pane inizierts
 	JScrollPane scrollPanel;
 			
 	public Gui() {
@@ -71,6 +71,7 @@ public class Gui extends JFrame{
 		scrollPanel=new JScrollPane(tbl_task);
 		jf.add(scrollPanel, BorderLayout.CENTER);
 		
+		tbl_task.setAutoCreateRowSorter(true);
 //		btn_setState=new JButton("Status�nderungen �bernehmen"); --- F�r Status sp�ter
 //		btn_setState.addActionListener(gc); --- F�r Status sp�ter
 //		add(btn_setState, BorderLayout.SOUTH); --- F�r Status sp�ter
