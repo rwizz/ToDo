@@ -52,6 +52,7 @@ public class Gui extends JFrame{
 		btn_favorites=new JButton("Favorites");
 		btn_favorites.addActionListener(gc);
 		btn_all=new JButton("All");
+		
 		btn_all.addActionListener(gc);
 //		btn_closed=new JButton("Closed"); --- F�r Status sp�ter
 //		btn_closed.addActionListener(gc); --- F�r Status sp�ter
