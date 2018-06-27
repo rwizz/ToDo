@@ -40,7 +40,7 @@ public class Gui extends JFrame{
 	public Gui() {
 		
 		jf.setLayout(new BorderLayout());
-		jf.setSize(1000, 105);
+		jf.setSize(1000, 95);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//Grunds�tzlicher Aufbau----------------------------------
 		pnl_gui.setLayout(new BorderLayout());
